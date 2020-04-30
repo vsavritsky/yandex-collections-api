@@ -1,0 +1,21 @@
+{
+    "name": "vsavritsky/yandex-collections-api",
+    "description": "API сервиса Яндекс.Коллекции",
+    "type": "library",
+    "require": {
+        "php": ">=7.1",
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "authors": [
+        {
+            "name": "Vladimir Savritsky",
+            "email": "vladimir.savritsky@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "YandexCollectionsApi\\": "src"
+        }
+    }
+}
