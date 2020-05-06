@@ -28,7 +28,7 @@ abstract class AbstractBaseApi
     protected function query(string $httpMethod, string $apiMethod, array $params = [])
     {
         $params['headers'] = ['Authorization' => 'OAuth ' . $this->token];
-        $params['query']['as_company'] = 'company@kalinka-rielti';
+        $params['query']['as_company'] = $this->companyName;
         if ($httpMethod == 'GET') {
             $params['headers']['Accept'] = 'application/json';
         } else if ($httpMethod == 'POST' || $httpMethod == 'PATCH') {

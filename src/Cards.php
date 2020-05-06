@@ -37,12 +37,12 @@ class Cards extends AbstractBaseApi
      * @param string $pageTitle Title страницы, на которую ведет ссылка. Нигде не отображается.
      * @param string $description Описание карточки. Видно при просмотре карточки
      * @param string $pageURL Ссылка на страницу-источник этой карточки
-     * @param \YandexCollectionsApi\Data\Content $content Перечисление картинок и видео, которые будут прикреплены к карточке {@see \YandexCollectionsApi\Data\Content}. Можно прикреплять несколько объектов, но выводиться будет только первый. При проверке по id карточки тоже показывает один объект. Непонятно зачем сделали возможность прикреплять несколько.
+     * @param \YandexCollectionsApi\Content $content Перечисление картинок и видео, которые будут прикреплены к карточке {@see \YandexCollectionsApi\Content}. Можно прикреплять несколько объектов, но выводиться будет только первый. При проверке по id карточки тоже показывает один объект. Непонятно зачем сделали возможность прикреплять несколько.
      * @return \stdClass Ответ от api {@link https://yandex.ru/dev/collections/doc/ref/Cards/v1_cards_post-docpage/}
      *
      * Списки аргументов переменной длины - {@link https://www.php.net/manual/ru/functions.arguments.php#functions.variable-arg-list}
      */
-    public function insert(string $boardId, string $pageDomain, string $pageTitle, string $description, string $pageURL, Data\Content ...$content): \stdClass
+    public function insert(string $boardId, string $pageDomain, string $pageTitle, string $description, string $pageURL, Content ...$content): \stdClass
     {
         $params = [
             'board_id' => $boardId,
