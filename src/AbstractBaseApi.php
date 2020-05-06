@@ -6,11 +6,13 @@ abstract class AbstractBaseApi
 {
     const API_HOST = 'https://api.collections.yandex.net';
     
+    protected $companyName;
     protected $httpClient;
     protected $token;
     
-    public function __construct(\GuzzleHttp\Client $httpClient, string $token)
+    public function __construct($companyName, \GuzzleHttp\Client $httpClient, string $token)
     {
+        $this->companyName = $companyName;
         $this->httpClient = $httpClient;
         $this->token = $token;
     }
@@ -26,6 +28,7 @@ abstract class AbstractBaseApi
     protected function query(string $httpMethod, string $apiMethod, array $params = [])
     {
         $params['headers'] = ['Authorization' => 'OAuth ' . $this->token];
+        $params['query'] = $this->companyName;
         if ($httpMethod == 'GET') {
             $params['headers']['Accept'] = 'application/json';
         } else if ($httpMethod == 'POST' || $httpMethod == 'PATCH') {

@@ -14,13 +14,14 @@ class YandexCollectionsApi
     /**
      * Класс для хранения объектов, через которые идет взаимодействие с API Яндекс коллекций
      *
+     * @param $companyName название компании (подробнее https://yandex.ru/dev/collections/doc/concepts/about-docpage/)
      * @param \GuzzleHttp\Client $httpClient HTTP клиент для запросов к Яндекс API
      * @param string $token OAuth токен пользователя, от имени которого будут вызываться методы API {@link https://yandex.ru/dev/collections/doc/concepts/access-docpage/}
      */
-    public function __construct(\GuzzleHttp\Client $httpClient, string $token)
+    public function __construct($companyName, \GuzzleHttp\Client $httpClient, string $token)
     {
-        $this->boards = new Boards($httpClient, $token);
-        $this->cards = new Cards($httpClient, $token);
+        $this->boards = new Boards($companyName, $httpClient, $token);
+        $this->cards = new Cards($companyName, $httpClient, $token);
     }
     
     /**
