@@ -6,6 +6,8 @@
         "php": ">=7.1",
         "guzzlehttp/guzzle": "^6.3"
     },
+    "keywords":["php", "yandex-collections-api", "collections"],
+    "license": "MIT",
     "authors": [
         {
             "name": "Vladimir Savritsky",

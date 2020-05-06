@@ -13,7 +13,6 @@ $httpClient = new \GuzzleHttp\Client();
 
 // Так как апи работает только для организаций, нужно указать название компании (подробнее https://yandex.ru/dev/collections/doc/concepts/about-docpage/)
 $companyName = 'company@companyName';
-$params['query']['as_company'] = 'company@kalinka-rielti';
 $YandexCollectionsApi = new YandexCollectionsApi($companyName, $httpClient, OAUTH_TOKEN);
 
 try {

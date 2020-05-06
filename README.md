@@ -6,9 +6,10 @@ PHP 7.1+
   
 ## Установка
 Установка с помощью Composer:  
-    composer require vsavritsky/php-yandex-collections-api
+    composer require vsavritsky/yandex-collections-api
   
-## Пример
+## Пример 
+Так как апи работает только для организаций, нужно указать название компании (подробнее https://yandex.ru/dev/collections/doc/concepts/about-docpage/)
 Нужен OAuth токен (https://yandex.ru/dev/collections/doc/concepts/access-docpage/)  
 Отладочный токен можно получить таким образом: https://oauth.yandex.ru/authorize?response_type=token&client_id=<APP_ID>  
   
@@ -17,8 +18,8 @@ PHP 7.1+
     
     const OAUTH_TOKEN = 'token';
 
-    $httpClient = new \GuzzleHttp\Client();
-    $yandexCollectionsApi = new YandexCollectionsApi\YandexCollectionsApi($httpClient, OAUTH_TOKEN);
+    $companyName = 'company@companyName';
+    $YandexCollectionsApi = new YandexCollectionsApi($companyName, $httpClient, OAUTH_TOKEN);
     
     try {
         $page = 1; // страница
