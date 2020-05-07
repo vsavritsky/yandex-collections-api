@@ -38,7 +38,7 @@ abstract class AbstractBaseApi
         if ($res->getStatusCode() == 204) {
             return true;
         }
-        return \GuzzleHttp\json_decode($res->getBody()->getContents());
+        return \GuzzleHttp\json_decode($res->getBody()->getContents(), true);
     }
     
 }

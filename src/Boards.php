@@ -11,7 +11,7 @@ class Boards extends AbstractBaseApi
      * @param int $pageSize Сколько элементов на странице
      * @return \stdClass Ответ от api {@link https://yandex.ru/dev/collections/doc/ref/Boards/v1_boards_get-docpage/}
      */
-    public function list(int $page = 1, int $pageSize = 20): \stdClass
+    public function list(int $page = 1, int $pageSize = 20)
     {
         $params['query'] = ['page' => $page, 'page_size' => $pageSize];
         return $this->query('GET', '/v1/boards/', $params);
@@ -23,7 +23,7 @@ class Boards extends AbstractBaseApi
      * @param string $id ID доски
      * @return \stdClass Ответ от api {@link https://yandex.ru/dev/collections/doc/ref/Boards/v1_boards_id_get-docpage/}
      */
-    public function get(string $id): \stdClass
+    public function get(string $id)
     {
         return $this->query('GET', '/v1/boards/' . $id);
     }
@@ -36,7 +36,7 @@ class Boards extends AbstractBaseApi
      * @param string|null $description Описание доски. null - без описания
      * @return \stdClass Ответ от api {@link https://yandex.ru/dev/collections/doc/ref/Boards/v1_boards_post-docpage/}
      */
-    public function insert(bool $isPrivate, string $title, ?string $description = NULL): \stdClass
+    public function insert(bool $isPrivate, string $title, ?string $description = NULL)
     {
         $params = [
             'is_private' => $isPrivate,
@@ -57,7 +57,7 @@ class Boards extends AbstractBaseApi
      * @param string|null $description Новое описание доски. null - не менять
      * @return \stdClass Ответ от api {@link https://yandex.ru/dev/collections/doc/ref/Boards/v1_boards_id_patch-docpage/}
      */
-    public function update(string $id, bool $isPrivate = NULL, ?string $title = NULL, ?string $description = NULL): \stdClass
+    public function update(string $id, bool $isPrivate = NULL, ?string $title = NULL, ?string $description = NULL)
     {
         $params = [];
         if ($isPrivate !== NULL) {

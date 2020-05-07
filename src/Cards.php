@@ -12,7 +12,7 @@ class Cards extends AbstractBaseApi
      * @param int $pageSize Сколько элементов на странице. Максимум 100
      * @return \stdClass Ответ от api {@link https://yandex.ru/dev/collections/doc/ref/Cards/v1_cards_get-docpage/}
      */
-    public function list(string $boardId, int $page = 1, int $pageSize = 20): \stdClass
+    public function list(string $boardId, int $page = 1, int $pageSize = 20)
     {
         $params['query'] = ['board_id' => $boardId, 'page' => $page, 'page_size' => $pageSize];
         return $this->query('GET', '/v1/cards/', $params);
@@ -24,7 +24,7 @@ class Cards extends AbstractBaseApi
      * @param string $id ID карточки
      * @return \stdClass Ответ от api {@link https://yandex.ru/dev/collections/doc/ref/Cards/v1_cards_id_get-docpage/}
      */
-    public function get(string $id): \stdClass
+    public function get(string $id)
     {
         return $this->query('GET', '/v1/cards/' . $id . '/');
     }
@@ -42,7 +42,7 @@ class Cards extends AbstractBaseApi
      *
      * Списки аргументов переменной длины - {@link https://www.php.net/manual/ru/functions.arguments.php#functions.variable-arg-list}
      */
-    public function insert(string $boardId, string $pageDomain, string $pageTitle, string $description, string $pageURL, Content ...$content): \stdClass
+    public function insert(string $boardId, string $pageDomain, string $pageTitle, string $description, string $pageURL, Content ...$content)
     {
         $params = [
             'board_id' => $boardId,
@@ -72,7 +72,7 @@ class Cards extends AbstractBaseApi
      * @param string|null $description Описание карточки. null - не менять
      * @return \stdClass Ответ от api {@link https://yandex.ru/dev/collections/doc/ref/Cards/v1_cards_id_patch-docpage/}
      */
-    public function update(string $cardID, ?string $boardId = NULL, ?string $description = NULL): \stdClass
+    public function update(string $cardID, ?string $boardId = NULL, ?string $description = NULL)
     {
         $params = [];
         if ($boardId !== NULL) {
